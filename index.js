@@ -32,8 +32,8 @@ function createProductHtml(product) {
     const imgData = product.images[i];
 
     const img = document.createElement("img");
-    img.src = "imgData.src";
-    img.alt = "imgData.alt";
+    img.src = imgData.src;
+    img.alt = imgData.alt;
     productContainer.append(img);
   }
   container.append(productContainer);
