@@ -24,13 +24,12 @@ function createProductHtml(product) {
   productContainer.classList.add("product");
   productContainer.id = product.id;
 
-  const title = document.createElement("h2");
+  const title = document.createElement("p");
   title.innerText = product.name;
   productContainer.append(title);
 
   for (let i = 0; i < product.images.length; i++) {
     const imgData = product.images[i];
-
     const img = document.createElement("img");
     img.src = imgData.src;
     img.alt = imgData.alt;
@@ -46,9 +45,9 @@ function createProductsHtml(products) {
   }
 }
 
-async function main() {
+async function shopPage() {
   const products = await getProducts();
   createProductsHtml(products);
 }
 
-main();
+shopPage();
