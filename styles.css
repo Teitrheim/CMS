@@ -68,17 +68,20 @@ p {
     font-size: 20px;
 }
 
+
 body {
     background-color: #8859E1
 }
 
 .container {
+    min-width: 100%;
+    min-height: 100%;
+    margin-left: 2%;
     display: flex;
-    align-items: center;
+    justify-content: space-between;
 }
 
 img {
-    max-width: 100%;
     width: 100%;
     height: auto;
 }
