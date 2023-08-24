@@ -2,13 +2,13 @@
 // const WOO_API_SECRET = `cs_49a14fb8aadaea141dab047291d789376caf5b87`;
 // const BASE_URL = `https://localhost/Flower_Power/wp-json/wc/v2/products?consumer_key=${WOO_API_KEY}&consumer_secret=${WOO_API_SECRET}`;
 
-const apiBase = "https://localhost/Flower_Power";
+const apiBase = "http://localhost:10004";
 const woocommerceBase = "/wp-json/wc/store";
 const productBase = "/products";
 
 const fullProductUrl = apiBase + woocommerceBase + productBase;
 const fullProductUrlExample =
-  "https://localhost/Flower_Power/wp-json/wc/store/products";
+  "http://localhost:10004/wp-json/wc/store/products";
 
 async function getProducts() {
   const response = await fetch(fullProductUrl);
