@@ -25,7 +25,7 @@ function createProductHtml(product) {
 
   // Create an anchor element for the product detail page
   const productLink = document.createElement("a");
-  productLink.href = "cart.html"; // Replace with the product detail URL
+  productLink.href = "product.html"; // Replace with the product detail URL
   productLink.target = ""; // Open link in a new tab
 
   const title = document.createElement("p");
@@ -34,7 +34,7 @@ function createProductHtml(product) {
 
   // Create an anchor element for the image
   const imgLink = document.createElement("a");
-  imgLink.href = "cart.html"; // Replace with the same product detail URL
+  imgLink.href = "product.html"; // Replace with the same product detail URL
   imgLink.target = ""; // Open link in a new tab
 
   for (let i = 0; i < product.images.length; i++) {
