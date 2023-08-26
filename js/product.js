@@ -1,4 +1,4 @@
-const productApiEndpoint = `http://localhost:10004/wp-json/wc/store/products/`;
+const productApiEndpoint = `https://flowerpower.seeorno.no/wp-json/wc/store/products/`;
 
 const productContainer = document.getElementById("product-container");
 

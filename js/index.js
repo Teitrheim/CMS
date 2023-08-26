@@ -1,10 +1,10 @@
-const apiBase = "http://localhost:10004";
+const apiBase = "https://flowerpower.seeorno.no";
 const woocommerceBase = "/wp-json/wc/store";
 const productBase = "/products";
 
 const fullProductUrl = apiBase + woocommerceBase + productBase;
 const fullProductUrlExample =
-  "http://localhost:10004/wp-json/wc/store/products";
+  "https://flowerpower.seeorno.no/wp-json/wc/store/products";
 
 async function getProducts() {
   const response = await fetch(fullProductUrl);
