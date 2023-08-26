@@ -101,6 +101,21 @@ h3 {
     height: auto;
 }
 
+#product-container {
+    background-color: #fffefe;
+    width: 100%;
+    /* Set an appropriate width */
+    height: auto;
+    /* Adjust the height as needed */
+    padding: 20px;
+    /* Add padding for spacing */
+    box-sizing: border-box;
+    /* Include padding in width/height calculations */
+    display: block;
+    /* or inline-block or flex, depending on the context */
+}
+
+
 
 img {
     width: 100%;

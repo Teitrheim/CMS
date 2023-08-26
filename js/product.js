@@ -1,19 +1,37 @@
-const productApiEndpoint = `https://flowerpower.seeorno.no/wp-json/wc/store/products/`;
-
+const productApiEndpoint =
+  "https://flowerpower.seeorno.no/wp-json/wc/store/products/";
 const productContainer = document.getElementById("product-container");
 
-fetch(productApiEndpoint)
-  .then((response) => response.json())
-  .then((productData) => {
-    console.log(productData);
-    const productHtml = `
-             <h2>${productData.title}</h2>
-             <p>${productData.description}</p>
-             <img src="${productData.images[0].src}" alt="Product Image">
-        `;
-    productContainer.innerHTML = productHtml;
-  })
-  .catch((error) => {
-    console.error("error fetching product", error);
-    productContainer.innerHTML = "error fetching product";
-  });
+async function fetchProducts() {
+  try {
+    const response = await fetch(productApiEndpoint);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const products = await response.json();
+
+    if (products.length > 0) {
+      const productHtml = products
+        .map(
+          (productData) => `
+        <div class="product">
+          <h2>${productData.name}</h2>
+          <p>${productData.description}</p>
+          <img src="${productData.images[0].src}" alt="Product Image">
+        </div>
+      `
+        )
+        .join("");
+
+      productContainer.innerHTML = productHtml;
+    } else {
+      productContainer.innerHTML = "No products found.";
+    }
+  } catch (error) {
+    console.error("Error fetching products", error);
+    productContainer.innerHTML = "Error fetching products";
+  }
+}
+
+fetchProducts();

@@ -25,7 +25,6 @@ function createProductHtml(product) {
 
   const title = document.createElement("h3");
   title.innerText = product.name;
-  productContainer.append(title);
 
   const imgLink = document.createElement("a");
   imgLink.href = "product.html";
@@ -38,15 +37,14 @@ function createProductHtml(product) {
     img.alt = imgData.alt;
 
     imgLink.appendChild(img);
-
-    productLink.appendChild(title);
-
-    productContainer.append(imgLink);
-    productContainer.append(productLink);
-
-    productContainer.append(img);
   }
-  container.append(productContainer);
+
+  productLink.appendChild(title);
+  productLink.appendChild(imgLink);
+
+  productContainer.appendChild(productLink);
+
+  container.appendChild(productContainer);
 }
 
 function createProductsHtml(products) {
