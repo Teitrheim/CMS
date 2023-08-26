@@ -12,19 +12,17 @@ async function fetchProducts() {
     const products = await response.json();
 
     if (products.length > 0) {
-      const productHtml = products
-        .map(
-          (productData) => `
-        <div class="product">
-          <h2>${productData.name}</h2>
-          <p>${productData.description}</p>
-          <img src="${productData.images[0].src}" alt="Product Image">
-        </div>
-      `
-        )
-        .join("");
+      for (const product of products) {
+        const productHtml = `
+          <div class="product">
+            <h2>${product.name}</h2>
+            <p>${product.description}</p>
+            <img src="${product.images[0].src}" alt="Product Image">
+          </div>
+        `;
 
-      productContainer.innerHTML = productHtml;
+        productContainer.innerHTML += productHtml;
+      }
     } else {
       productContainer.innerHTML = "No products found.";
     }
@@ -35,3 +33,37 @@ async function fetchProducts() {
 }
 
 fetchProducts();
+
+// const productId = 48;
+// const productApiEndpoint = `https://flowerpower.seeorno.no/wp-json/wc/store/products/${productId}`;
+// const productContainer = document.getElementById("product-container");
+
+// async function fetchProduct() {
+//   try {
+//     const response = await fetch(productApiEndpoint);
+
+//     if (!response.ok) {
+//       throw new Error("Network response was not ok");
+//     }
+
+//     const productData = await response.json();
+//     displayProduct(productData);
+//   } catch (error) {
+//     console.error("Error fetching product", error);
+//     productContainer.innerHTML = "Error fetching product";
+//   }
+// }
+
+// function displayProduct(product) {
+//   const productHtml = `
+//     <div class="product">
+//       <h2>${product.name}</h2>
+//       <p>${product.description}</p>
+//       <img src="${product.images[0].src}" alt="Product Image">
+//     </div>
+//   `;
+
+//   productContainer.innerHTML = productHtml;
+// }
+
+// fetchProduct();
