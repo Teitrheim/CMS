@@ -33,7 +33,7 @@ function createProductHtml(product) {
 }
 
 function createFeaturedProductHtml(product) {
-  const container = document.querySelector(".featured-products"); // Added: Container for featured products
+  const container = document.querySelector(".featured-products");
   const productContainer = document.createElement("div");
   productContainer.classList.add("product");
 
