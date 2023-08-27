@@ -3,3 +3,4 @@ const woocommerceBase = "/wp-json/wc/store";
 const productBase = "/products";
 
 export const fullProductUrl = apiBase + woocommerceBase + productBase;
+    
