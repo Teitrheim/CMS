@@ -1,15 +1,9 @@
-const apiBase = "https://flowerpower.seeorno.no";
-const woocommerceBase = "/wp-json/wc/store";
-const productBase = "/products";
-
-const fullProductUrl = apiBase + woocommerceBase + productBase;
-const fullProductUrlExample =
-  "https://flowerpower.seeorno.no/wp-json/wc/store/products";
+import { fullProductUrl } from "./constants/api.js";
 
 async function getProducts() {
   const response = await fetch(fullProductUrl);
   const products = await response.json();
-
+  console.log(products);
   return products;
 }
 
@@ -17,30 +11,22 @@ function createProductHtml(product) {
   const container = document.querySelector(".container");
   const productContainer = document.createElement("div");
   productContainer.classList.add("product");
-  productContainer.id = product.id;
 
   const productLink = document.createElement("a");
-  productLink.href = "product.html";
-  productLink.target = "";
+  productLink.classList.add("product-item");
+  productLink.href = `product.html?id=${product.id}`;
 
   const title = document.createElement("h3");
   title.innerText = product.name;
 
-  const imgLink = document.createElement("a");
-  imgLink.href = "product.html";
-  imgLink.target = "";
-
-  for (let i = 0; i < product.images.length; i++) {
-    const imgData = product.images[i];
-    const img = document.createElement("img");
-    img.src = imgData.src;
-    img.alt = imgData.alt;
-
-    imgLink.appendChild(img);
-  }
-
   productLink.appendChild(title);
-  productLink.appendChild(imgLink);
+
+  if (product.images.length > 0) {
+    const image = document.createElement("img");
+    image.src = product.images[0].src;
+    image.alt = product.images[0].alt;
+    productLink.appendChild(image);
+  }
 
   productContainer.appendChild(productLink);
 
@@ -56,7 +42,6 @@ function createProductsHtml(products) {
 
 async function shopPage() {
   const products = await getProducts();
-
   createProductsHtml(products);
 }
 

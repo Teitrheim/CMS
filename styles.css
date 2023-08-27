@@ -7,7 +7,7 @@ body {
 
 header {
     justify-content: center;
-    background-color: #FF8502;
+    background-color: #ff8502;
     color: #000000;
     text-align: center;
     padding: 10px;
@@ -39,12 +39,11 @@ nav {
 }
 
 .button:link {
-
     color: #ffffff;
 }
 
 .button:hover {
-    background-color: #8859E1;
+    background-color: #8859e1;
 }
 
 header img {
@@ -53,10 +52,11 @@ header img {
     right: 78%;
     width: 20%;
     height: 25%;
+    display: none;
 }
 
 header h1 {
-    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+    font-family: "Nunito", Arial, Helvetica, sans-serif;
     font-size: 48px;
     margin: 0;
     letter-spacing: 2px;
@@ -70,9 +70,8 @@ p {
     font-size: 20px;
 }
 
-
 body {
-    background-color: #8859E1
+    background-color: #8859e1;
 }
 
 h3 {
@@ -104,18 +103,20 @@ h3 {
 #product-container {
     background-color: #fffefe;
     width: 100%;
-    /* Set an appropriate width */
+
     height: auto;
-    /* Adjust the height as needed */
+
     padding: 20px;
-    /* Add padding for spacing */
+
     box-sizing: border-box;
-    /* Include padding in width/height calculations */
+
     display: block;
-    /* or inline-block or flex, depending on the context */
+
 }
 
-
+.product-item {
+    display: block;
+}
 
 img {
     width: 100%;
