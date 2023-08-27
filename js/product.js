@@ -21,8 +21,6 @@ async function fetchProduct() {
 
     const product = await response.json();
 
-    console.log(product);
-
     const productHtml = `
           <div class="product">
             <h2>${product.name}</h2>
